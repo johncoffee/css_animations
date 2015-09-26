@@ -6,12 +6,14 @@
     <style>
          .wrapper {
             position: relative;
-            height: 480px;   
-            width: 300px;
+            height: 100%;   
+            width: 100%;
             background: #4D042F;
         }
         .card {
             position: relative;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             color: #fff;
@@ -33,32 +35,20 @@
             /*animation: cardAni 888ms linear;*/
         /*}*/
         .transition-animation {
-            animation: cardAni 888ms linear;
+            animation: cardAni 2000ms;
         }
         
         @keyframes cardAni {
             0% {
-                transform: perspective( 600px ) translateZ(000px)  rotateY( 0deg );
-            }
-            25% {
-            }
-            35% {
-                background: #AFE3FB;
-                transform: perspective( 600px ) translateZ(-300px)  rotateY( 0deg );
+                transform: perspective( 1000px ) translateZ(000px)  rotateY( 0deg );
+                animation-timing-function: ease-in-out;
             }
             50% {
-                background: #d1f0fc;
-                transform: perspective( 600px)  translateZ(-300px) rotateY( 180deg );
-            }
-            65% {
-                transform: perspective( 600px)  translateZ(-300px) rotateY( 255deg );
-                background: #AFE3FB;
-            }
-            75% {
-                /*transform: perspective( 600px ) translateZ(000px)  rotateY( 270deg );*/
+                animation-timing-function: ease-in-out;
+                transform: perspective( 1000px ) translateZ(-300px)  rotateY( 0deg );
             }
             100% {
-                transform: perspective( 600px ) translateZ(0px)  rotateY( 360deg );
+                transform: perspective( 1000px ) translateZ(0px)  rotateY( 180deg );
             }
         }
     </style>
@@ -69,9 +59,13 @@
         <div class="contents">
             <h1>Schedule</h1>
             <button onclick="goTo(1)">go to page 2</button>
-            <div><p>Bacon ipsum dolor amet leberkas andouille meatball tail beef ribs pastrami, short loin pork. Shank kevin andouille filet mignon flank ground round brisket ball tip t-bone salami sausage ribeye. Strip steak meatball salami, cow kevin boudin pork loin alcatra frankfurter. Turducken picanha beef ribs pancetta.
-
-                <p>Pancetta bacon drumstick shoulder spare ribs. Short ribs rump tongue hamburger pork loin turkey pork belly cow leberkas picanha jowl. Tongue bacon ball tip short loin. Meatloaf turkey picanha hamburger ham tri-tip venison. Swine picanha frankfurter, jowl pork pork loin boudin. Corned beef tail jowl beef ribs andouille spare ribs. T-bone pork venison jerky jowl, cow ribeye.</div>
+            <p>username <input></p>
+            <p>password <input></p>
+            <p>keep me logged in<input type="checkbox"></p>
+            <div>
+                <p>Bacon ipsum dolor amet leberkas andouille meatball tail beef ribs pastrami, short loin pork. Shank kevin andouille filet mignon flank ground round brisket ball tip t-bone salami sausage ribeye. Strip steak meatball salami, cow kevin boudin pork loin alcatra frankfurter. Turducken picanha beef ribs pancetta.
+                <p>Pancetta bacon drumstick shoulder spare ribs. Short ribs rump tongue hamburger pork loin turkey pork belly cow leberkas picanha jowl. Tongue bacon ball tip short loin. Meatloaf turkey picanha hamburger ham tri-tip venison. Swine picanha frankfurter, jowl pork pork loin boudin. Corned beef tail jowl beef ribs andouille spare ribs. T-bone pork venison jerky jowl, cow ribeye.
+            </div>
         </div>
         <div class="contents">
             <h1>Tickets</h1>
@@ -87,7 +81,7 @@
     var $contents = $(".contents");
     var current = 0;
     goTo(current, true);
-    var aniTime = 888;
+    var aniTime = 2000;
     
     function goTo(index, skipAnimation) {
         if (!skipAnimation) {
